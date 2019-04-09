@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="description" content="A news aggregator.">
+    <meta name="author" content="nhtoshiaki">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'Infeed/style.css' %}">
+    <title>Infeed - A news aggregator.</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Infeed</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="main" class="container-fluid vh-100">
+        <div class="row justify-content-left h-100">
+            <div id="sidebar-wrapper" class="w-25 shadow rounded bg-light">
+                {% block 'left-side' %}
+                {% endblock %}
+            </div>
+            <div class="col-12 col-sm-8 col-lg-6 py-4">
+                {% block 'content' %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

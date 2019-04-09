@@ -1,3 +1,24 @@
-<h1>Feed Index Page</h1>
+{% extends 'Infeed/base.html' %}
 
-<p>You're on the main page of feed.</p>
+{% block 'left-side' %}
+    <nav class="navbar navbar-light bg-light">
+        <nav class="nav flex-column">
+            <a class="text-dark nav-link active" href="#">Item 1</a>
+            <a class="text-dark nav-link" href="#">Item 2</a>
+            <a class="text-dark nav-link" href="#">Item 3</a>
+            <a class="text-dark nav-link" href="#">Item 4</a>
+            <a class="text-dark nav-link" href="#">Item 5</a>
+        </nav>
+    </nav>
+{% endblock %}
+
+{% block 'content' %}
+    <div class="card">
+        <div class="card-header">
+            Card Title
+        </div>
+        <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet.</p>
+        </div>
+    </div>
+{% endblock %}
