@@ -1,24 +1,15 @@
-{% extends 'Infeed/base.html' %}
+{% extends 'feed/feed-layout.html' %}
 
-{% block 'left-side' %}
-    <nav class="navbar navbar-light bg-light">
-        <nav class="nav flex-column">
-            <a class="text-dark nav-link active" href="#">Item 1</a>
-            <a class="text-dark nav-link" href="#">Item 2</a>
-            <a class="text-dark nav-link" href="#">Item 3</a>
-            <a class="text-dark nav-link" href="#">Item 4</a>
-            <a class="text-dark nav-link" href="#">Item 5</a>
-        </nav>
-    </nav>
-{% endblock %}
-
-{% block 'content' %}
-    <div class="card">
-        <div class="card-header">
-            Card Title
-        </div>
-        <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet.</p>
-        </div>
+{% block 'focus-content' %}
+<div id="focus-content" class="row justify-content-center">
+    <div id="first-column" class="col-md-4">
+        {% include 'feed/card.html' with card_title="First Column" card_text="The quick brown fox jumps over the lazy dog." %}
     </div>
+    <div id="second-column" class="col-md-4">
+        {% include 'feed/card.html' with card_title="Second Column" card_text="Lorem ipsum dolor sit amet." %}
+    </div>
+    <div id="third-column" class="col-md-4">
+        {% include 'feed/card.html' with card_title="Third Column" card_text="This is the third column." %}
+    </div>
+</div>
 {% endblock %}
