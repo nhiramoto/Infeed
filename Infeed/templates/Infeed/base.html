@@ -1,4 +1,5 @@
 {% load static %}
+{% load sass_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,31 +7,34 @@
     <meta name="description" content="A news aggregator.">
     <meta name="author" content="nhtoshiaki">
     <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'Infeed/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'Infeed/style/style.scss' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/solid.css" integrity="sha384-QokYePQSOwpBDuhlHOsX0ymF6R/vLk/UQVz3WHa6wygxI5oGTmDTv8wahFOSspdm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css" integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous">
+    <script type="text/javascript" src="{% static 'Infeed/script/script.js' %}"></script>
     <title>Infeed - A news aggregator.</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Infeed</a>
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-            </ul>
+    <div class="wrapper row justify-content-left">
+        <div id="sidebar-wrapper" class="shadow">
+            {% block 'left-side' %}
+            {% endblock %}
         </div>
-    </nav>
-    <div id="main" class="container-fluid vh-100">
-        <div class="row justify-content-left h-100">
-            <div id="sidebar-wrapper" class="w-25 shadow rounded bg-light">
-                {% block 'left-side' %}
-                {% endblock %}
-            </div>
-            <div class="w-75 py-4">
-                {% block 'content' %}
-                {% endblock %}
-            </div>
+        <div id="content-wrapper" class="">
+            <nav class="navbar navbar-expand-lg navbar-light py-2">
+                <div class="container-fluid">
+                    <button id="sidebar-button" class="btn btn-info mx-2 mr-4" type="button">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                </div>
+            </nav>
+
+            {% block 'content' %}
+            {% endblock %}
         </div>
     </div>
 </body>

@@ -1,0 +1,47 @@
+// vim: filetype=scss :
+
+$sidebarBgColor: #7386D5;
+$sidebarFgColor: #fff;
+
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#main {
+    padding-top: 56px;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    margin: 0;
+}
+
+#sidebar-wrapper {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 100vh;
+    background: $sidebarBgColor;
+    color: $sidebarFgColor;
+    transition: margin-left .5s ease-in-out;
+    .nav-link {
+        color: $sidebarFgColor;
+    }
+    &.hidden {
+        margin-left: -250px;
+        transition: margin-left .3s ease-in-out;
+    }
+}
+
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: -250px;
+        &.hidden {
+            margin-left: 0;
+        }
+    }
+}
+
