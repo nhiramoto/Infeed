@@ -11,6 +11,7 @@ django-crispy-forms = "*"
 libsass = "*"
 django-compressor = "*"
 django-sass-processor = "*"
+feedparser = "*"
 
 [requires]
 python_version = "3.7"

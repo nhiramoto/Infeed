@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import SourceList, Source, SourceItem
+
+admin.site.register(SourceList)
+admin.site.register(Source)
+admin.site.register(SourceItem)
