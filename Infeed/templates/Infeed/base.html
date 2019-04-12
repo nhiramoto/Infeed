@@ -16,9 +16,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/fontawesome.css" integrity="sha384-vd1e11sR28tEK9YANUtpIOdjGW14pS87bUBuOIoBILVWLFnS+MCX9T6MMf0VdPGq" crossorigin="anonymous">
     <script type="text/javascript" src="{% static 'Infeed/script/script.js' %}"></script>
     <title>Infeed - A news aggregator.</title>
+    {% block 'head' %}{% endblock %}
 </head>
 <body>
-    <div class="wrapper row justify-content-left">
+    <div class="wrapper">
         <div id="sidebar-wrapper" class="shadow">
             {% block 'left-side' %}
             {% endblock %}

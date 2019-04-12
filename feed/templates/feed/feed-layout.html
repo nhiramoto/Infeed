@@ -1,7 +1,14 @@
 {% extends 'Infeed/base.html' %}
+{% load static %}
+{% load sass_tags %}
+
+{% block 'head' %}
+<link rel="stylesheet" type="text/css" href="{% sass_src 'feed/style/style.scss' %}">
+{% endblock %}
 
 {% block 'left-side' %}
-    <nav class="navbar">
+    <nav id="sidebar-content" class="navbar">
+        <span class="brand">Infeed</span>
         <nav class="nav flex-column">
             <a class="nav-link active" href="#">Item 1</a>
             <a class="nav-link" href="#">Item 2</a>
@@ -15,7 +22,7 @@
 {% block 'content' %}
     <div class="container">
         <div class="row justify-content-left">
-            <div class="col-md-12 col-lg-10">
+            <div class="col-md-12">
                 {% block 'focus-content' %}
                 {% endblock %}
             </div>
