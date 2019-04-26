@@ -1,5 +1,21 @@
 {% extends 'feed/feed-layout.html' %}
 
+{% block 'menu' %}
+<a class="nav-link active" href="#">Item 1</a>
+<a class="nav-link" href="#">Item 2</a>
+<a class="nav-link" href="#">Item 3</a>
+<a class="nav-link" href="#">Item 4</a>
+<a class="nav-link" href="#">Item 5</a>
+<a class="nav-link" href="#">Item 6</a>
+
+<div class="btn-group" role="group" aria-label="menu-btn-group">
+    <button type="button" id="newDropdownMenuButton" class="btn btn-outline-light btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New</button>
+    <div class="dropdown-menu dropdown-menu-center" aria-labelledby="newDropdownMenuButton">
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add-feed-dialog">New Feed</a>
+    </div>
+</div>
+{% endblock %}
+
 {% block 'focus-content' %}
 <div id="focus-content" class="row justify-content-center px-2">
     <div id="first-column" class="col-md-4">
@@ -16,6 +32,36 @@
     </div>
     <div id="fifth-column" class="col-md-4">
         {% include 'feed/card.html' with card_title="Fifth Column" card_text="This is the fifth column." %}
+    </div>
+</div>
+{% endblock %}
+
+{% block 'body-append' %}
+<div id="add-feed-dialog" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="add-feed-dialog-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="add-feed-dialog-label">Add Feed</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="feed-title">Title</label>
+                        <input type="text" id="feed-title" class="form-control" placeholder="Feed Title"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="feed-url">Url</label>
+                        <input type="url" id="feed-url" class="form-control" placeholder="https://something.domain/feed.xml"></input>
+                    </div>
+                    <div class=" form-group btn-group">
+                        <button type="submit" class="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

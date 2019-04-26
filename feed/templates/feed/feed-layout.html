@@ -10,11 +10,8 @@
     <nav id="sidebar-content" class="navbar">
         <span class="brand">Infeed</span>
         <nav class="nav flex-column">
-            <a class="nav-link active" href="#">Item 1</a>
-            <a class="nav-link" href="#">Item 2</a>
-            <a class="nav-link" href="#">Item 3</a>
-            <a class="nav-link" href="#">Item 4</a>
-            <a class="nav-link" href="#">Item 5</a>
+            {% block 'menu' %}
+            {% endblock %}
         </nav>
     </nav>
 {% endblock %}
