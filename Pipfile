@@ -18,3 +18,5 @@ python_version = "3.7"
 
 [scripts]
 dev = "python manage.py runserver"
+mkmigfeed = "python manage.py makemigrations feed"
+migrate = "python manage.py migrate"
