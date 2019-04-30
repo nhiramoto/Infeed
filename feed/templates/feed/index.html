@@ -11,7 +11,7 @@
 <div class="btn-group" role="group" aria-label="menu-btn-group">
     <button type="button" id="newDropdownMenuButton" class="btn btn-outline-light btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New</button>
     <div class="dropdown-menu dropdown-menu-center" aria-labelledby="newDropdownMenuButton">
-        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add-feed-dialog">New Feed</a>
+        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add-source-dialog">New Feed</a>
     </div>
 </div>
 {% endblock %}
@@ -53,11 +53,11 @@
 {% endblock %}
 
 {% block 'body-append' %}
-<div id="add-feed-dialog" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="add-feed-dialog-label" aria-hidden="true">
+<div id="add-source-dialog" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="add-source-dialog-label" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="add-feed-dialog-label">Add Feed</h5>
+                <h5 class="modal-title" id="add-source-dialog-label">Add Feed</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -72,6 +72,14 @@
                     <div class="form-group">
                         <label for="feed-description">Description</label>
                         <input type="text" id="feed-description" class="form-control" placeholder="Feed Description" name="description"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="source_lists">List</label>
+                        <select id="source_lists" class="form-control" name="source_list_id">
+                            {% for sl in source_lists %}
+                                <option value={{sl.id}}>{{sl.name}}</option>
+                            {% endfor %}
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="feed-url">Url</label>
