@@ -1,12 +1,19 @@
 {% extends 'feed/feed-layout.html' %}
 
 {% block 'menu' %}
-<a class="nav-link active" href="#">Item 1</a>
-<a class="nav-link" href="#">Item 2</a>
-<a class="nav-link" href="#">Item 3</a>
-<a class="nav-link" href="#">Item 4</a>
-<a class="nav-link" href="#">Item 5</a>
-<a class="nav-link" href="#">Item 6</a>
+    <a class="nav-link active" href="/feed/">All</a>
+{% for sl in source_lists %}
+    {% if sl.source_set.count > 0 %}
+        <a class="nav-link" href="#"><span>{{sl.name}}</span> <button class="btn text-light px-2 py-0" data-toggle="collapse" data-target="#{{sl.name}}" aria-controls="{{sl.name}}" aria-expanded="false"><i class="fas fa-caret-down"></i></button><a>
+        <div class="collapse collapse-menu" id="{{sl.name}}">
+            {% for s in sl.source_set.all %}
+                <a class="nav-link" href="#">{{s.name}}</a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <a class="nav-link" href="#">{{sl.name}}</a>
+    {% endif %}
+{% endfor %}
 
 <div class="btn-group" role="group" aria-label="menu-btn-group">
     <button type="button" id="newDropdownMenuButton" class="btn btn-outline-light btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">New</button>

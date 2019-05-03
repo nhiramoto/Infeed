@@ -19,5 +19,8 @@
   #sidebar-content .btn-group {
     padding-left: 4px;
     padding-right: 4px; }
+  #sidebar-content .collapse-menu {
+    background: #6071b4;
+    padding-left: 20px; }
 
 /*# sourceMappingURL=style.css.map */

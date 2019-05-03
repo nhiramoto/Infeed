@@ -25,5 +25,9 @@ $brandBgColor: #6172b4;
         padding-left: 4px;
         padding-right: 4px;
     }
+    .collapse-menu {
+        background: darken($brandBgColor, 0.2);
+        padding-left: 20px;
+    }
 }
 
