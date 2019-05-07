@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import SourceList, Source, SourceItem
+from .models import List, Source, Item
 
-admin.site.register(SourceList)
+admin.site.register(List)
 admin.site.register(Source)
-admin.site.register(SourceItem)
+admin.site.register(Item)

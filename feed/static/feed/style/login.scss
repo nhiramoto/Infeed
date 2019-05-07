@@ -1,0 +1,28 @@
+body {
+    background: #EFEFEF;
+}
+
+.form-wrapper {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-signin {
+    max-width: 400px;
+    #inputEmail, #inputPassword {
+        padding: 20px;
+    }
+    #inputEmail {
+        border-radius: 5px 5px 0 0;
+    }
+    #inputPassword {
+        border-radius: 0 0 5px 5px;
+    }
+    .form-message {
+        font-size: 1.2rem;
+        color: gray;
+    }
+}

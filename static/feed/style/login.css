@@ -1,0 +1,23 @@
+body {
+  background: #EFEFEF; }
+
+.form-wrapper {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center; }
+
+.form-signin {
+  max-width: 400px; }
+  .form-signin #inputEmail, .form-signin #inputPassword {
+    padding: 20px; }
+  .form-signin #inputEmail {
+    border-radius: 5px 5px 0 0; }
+  .form-signin #inputPassword {
+    border-radius: 0 0 5px 5px; }
+  .form-signin .form-message {
+    font-size: 1.2rem;
+    color: gray; }
+
+/*# sourceMappingURL=login.css.map */
