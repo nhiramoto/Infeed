@@ -1,3 +1,5 @@
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import RedirectView
 
@@ -18,16 +20,19 @@ def user_login(request):
     Authenticate user.
     """
     try:
-        email = request.POST['email']
+        username = request.POST['username']
         password = request.POST['password']
-        if len(email) == 0 or len(password) == 0:
-            raise KeyError
-        return render(request, 'feed/login.html', {
-            'error_message': 'Not implemented yet.'
-        })
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return render(request, 'feed/all.html')
+        else:
+            return render(request, 'feed/login.html', {
+                'error_message': 'User not found.'
+            })
     except KeyError:
         return render(request, 'feed/login.html', {
-            'error_message': 'Not implemented yet.'
+            'error_message': 'User name or password not provided.'
         })
 
 

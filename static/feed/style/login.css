@@ -10,9 +10,9 @@ body {
 
 .form-signin {
   max-width: 400px; }
-  .form-signin #inputEmail, .form-signin #inputPassword {
+  .form-signin #inputUsername, .form-signin #inputPassword {
     padding: 20px; }
-  .form-signin #inputEmail {
+  .form-signin #inputUsername {
     border-radius: 5px 5px 0 0; }
   .form-signin #inputPassword {
     border-radius: 0 0 5px 5px; }
