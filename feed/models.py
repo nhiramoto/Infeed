@@ -1,14 +1,13 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
-class User(models.Model):
-    name = models.CharField(max_length=200)
-    login = models.CharField(max_length=200)
-    password = models.CharField(max_length=200)
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 class List(models.Model):
-    list_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=200)
 
     def __str__(self):
