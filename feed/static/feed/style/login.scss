@@ -2,7 +2,7 @@ body {
     background: #EFEFEF;
 }
 
-.form-wrapper {
+.wrapper {
     display: flex;
     width: 100vw;
     height: 100vh;
@@ -10,9 +10,9 @@ body {
     align-items: center;
 }
 
-.form-signin {
-    max-width: 400px;
-    #inputUsername, #inputPassword {
+.form-container {
+    max-width: 600px;
+    .form-control {
         padding: 20px;
     }
     #inputUsername {

@@ -4,14 +4,13 @@
 
 {% block 'head' %}
 <link rel="stylesheet" type="text/css" href="{% sass_src 'feed/style/login.scss' %}">
+<script type="text/javascript" src="{% static 'feed/script/login.js' %}"></script>
 {% endblock %}
 
 {% block 'body' %}
-<div class="form-wrapper">
-    <form class="form-signin text-center" method="post" action="/feed/user/login">
-        {% csrf_token %}
+<div class="wrapper">
+    <div class="form-container text-center">
         <h1 class="h1 my-3">Infeed</h1>
-        <p class="form-message">Please sign in</p>
         {% if error_message %}
         <div class="alert alert-danger alert-dismissible fade show my-2" role="alert">
             {{ error_message }}
@@ -28,13 +27,56 @@
             </button>
         </div>
         {% endif %}
-        <label for="inputUsername" class="sr-only">User name</label>
-        <input type="text" id="inputUsername" name="username" class="form-control" placeholder="User name" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-        <input class="my-4" type="checkbox" value="remember-me"> Remember me
-        <button class="btn btn-lg btn-outline-primary btn-block" type="submit">Sign in</button>
-    </form>
+        <p class="form-message">Are you already registered?</p>
+        <div class="form-check form-check-inline mb-2">
+            <input class="form-check-input" id="radio-yes" type="radio" name="already-registered" value="yes" checked>
+            <label class="form-check-label" for="radio-yes">Yes</label>
+        </div>
+        <div class="form-check form-check-inline mb-2">
+            <input class="form-check-input" id="radio-no" type="radio" name="already-registered" value="no">
+            <label class="form-check-label" for="radio-no">No</label>
+        </div>
+        <form id="form-signin" method="post" action="/feed/user/login">
+            {% csrf_token %}
+            <p class="form-message">Please sign in.</p>
+            <label for="signinInputUsername" class="sr-only">User name</label>
+            <input type="text" id="signinInputUsername" name="username" class="form-control" placeholder="User name" required autofocus>
+            <label for="signinInputPassword" class="sr-only">Password</label>
+            <input type="password" id="signinInputPassword" name="password" class="form-control" placeholder="Password" required>
+            <input class="my-4" type="checkbox" value="remember-me"> Remember me
+            <button class="btn btn-lg btn-outline-primary btn-block" type="submit">Sign in</button>
+        </form>
+        <form id="form-signup" method="post" action="/feed/user/signup">
+            {% csrf_token %}
+            <p class="form-message">Please register.</p>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="signupInputFirstName" class="sr-only">First name</label>
+                    <input type="text" id="signupInputFirstName" name="firstname" class="form-control" placeholder="First name" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="signupInputLastName" class="sr-only">Last name</label>
+                    <input type="text" id="signupInputLastName" name="lastname" class="form-control" placeholder="Last name" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="signupInputEmail" class="sr-only">Email</label>
+                <input type="email" id="signupInputEmail" name="email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="signupInputPassword" class="sr-only">Password</label>
+                    <input type="password" id="signupInputPassword" name="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="signupInputRepassword" class="sr-only">Re-enter your password</label>
+                    <input type="password" id="signupInputRepassword" class="form-control" placeholder="Re-enter your password" required>
+                </div>
+            </div>
+            <button class="btn btn-lg btn-outline-primary btn-block" type="submit">Sign Up</button>
+        </form>
+    </div>
 </div>
 {% endblock %}
 

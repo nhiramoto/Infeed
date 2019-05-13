@@ -1,22 +1,22 @@
 body {
   background: #EFEFEF; }
 
-.form-wrapper {
+.wrapper {
   display: flex;
   width: 100vw;
   height: 100vh;
   justify-content: center;
   align-items: center; }
 
-.form-signin {
-  max-width: 400px; }
-  .form-signin #inputUsername, .form-signin #inputPassword {
+.form-container {
+  max-width: 600px; }
+  .form-container .form-control {
     padding: 20px; }
-  .form-signin #inputUsername {
+  .form-container #inputUsername {
     border-radius: 5px 5px 0 0; }
-  .form-signin #inputPassword {
+  .form-container #inputPassword {
     border-radius: 0 0 5px 5px; }
-  .form-signin .form-message {
+  .form-container .form-message {
     font-size: 1.2rem;
     color: gray; }
 
